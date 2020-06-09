@@ -1,0 +1,24 @@
+<actions>
+	<action intentName="actions.intent.GET_ACCOUNT">
+		<fulfillment urlTemplate="todo_list://list">
+		</fulfillment>
+	</action>
+
+	<action intentName="actions.intent.OPEN_APP_FEATURE">
+		<!-- Each parameter can reference an entity set using a custom ID. -->
+		<parameter name="feature">
+			<entity-set-reference entitySetId="FeatureEntitySet"/>
+		</parameter>
+
+		<fulfillment urlTemplate="todo_list://features/{appFeature}">
+			<parameter-mapping intentParameter="feature" urlParameter="appFeature" />
+		</fulfillment>
+	</action>
+
+	<entity-set entitySetId="FeatureEntitySet">
+		<entity identifier="FEATUREONE" name="first feature" />
+		<entity identifier="FEATURETWO" name="second feature" />
+	</entity-set>
+
+
+</actions>
